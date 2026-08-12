@@ -27,13 +27,13 @@ export const App: React.FC = () => {
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 0.5 }}
-      className="min-h-screen bg-slate-50 text-slate-900 flex flex-col font-sans selection:bg-blue-600 selection:text-white"
+      className="min-h-screen bg-slate-50 text-slate-900 flex flex-col font-sans selection:bg-blue-600 selection:text-white overflow-x-hidden w-full max-w-full relative"
     >
       {/* Top Navbar */}
       <Navbar onOpenDemoModal={handleOpenDemoModal} />
 
       {/* Main Content Sections */}
-      <main className="flex-grow">
+      <main className="flex-grow overflow-x-hidden w-full max-w-full">
         {/* Hero Section */}
         <Hero onOpenDemoModal={handleOpenDemoModal} />
 

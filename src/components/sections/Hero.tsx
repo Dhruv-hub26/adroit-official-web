@@ -31,13 +31,13 @@ export const Hero: React.FC<HeroProps> = ({ onOpenDemoModal }) => {
   };
 
   return (
-    <section className="relative pt-36 pb-20 md:pt-44 md:pb-28 overflow-hidden hero-gradient-bg bg-grid-pattern">
+    <section className="relative pt-28 pb-16 sm:pt-36 sm:pb-20 md:pt-44 md:pb-28 overflow-hidden hero-gradient-bg bg-grid-pattern max-w-full w-full">
       {/* Background Glow Spheres */}
-      <div className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-blue-500/10 rounded-full blur-3xl pointer-events-none" />
-      <div className="absolute top-1/3 right-10 w-[400px] h-[400px] bg-sky-400/10 rounded-full blur-3xl pointer-events-none" />
+      <div className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[300px] sm:w-[600px] h-[300px] sm:h-[600px] bg-blue-500/10 rounded-full blur-3xl pointer-events-none" />
+      <div className="absolute top-1/3 right-10 w-[200px] sm:w-[400px] h-[200px] sm:h-[400px] bg-sky-400/10 rounded-full blur-3xl pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <div className="grid lg:grid-cols-12 gap-12 lg:gap-8 items-center">
+        <div className="grid lg:grid-cols-12 gap-8 lg:gap-8 items-center">
           
           {/* Left Hero Text Column */}
           <motion.div 
@@ -47,34 +47,34 @@ export const Hero: React.FC<HeroProps> = ({ onOpenDemoModal }) => {
             className="lg:col-span-6 space-y-6 text-center lg:text-left"
           >
             {/* Badge */}
-            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-blue-50 border border-blue-200/80 shadow-sm text-blue-700 font-semibold text-xs">
-              <Sparkles className="w-3.5 h-3.5 text-blue-600 animate-pulse" />
-              <span>Next-Gen Enterprise Digital Ecosystems</span>
+            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-blue-50 border border-blue-200/80 shadow-sm text-blue-700 font-semibold text-xs max-w-full">
+              <Sparkles className="w-3.5 h-3.5 text-blue-600 animate-pulse flex-shrink-0" />
+              <span className="truncate">Next-Gen Enterprise Digital Ecosystems</span>
             </div>
 
             {/* Main Headline */}
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-slate-900 tracking-tight leading-[1.12]">
+            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold text-slate-900 tracking-tight leading-[1.15] sm:leading-[1.12]">
               Accelerating Innovation with{' '}
               <span className="blue-gradient-text">AI-Driven</span> Software Solutions.
             </h1>
 
             {/* Sub-headline */}
-            <p className="text-lg sm:text-xl text-slate-600 leading-relaxed max-w-2xl mx-auto lg:mx-0 font-normal">
+            <p className="text-base sm:text-lg md:text-xl text-slate-600 leading-relaxed max-w-2xl mx-auto lg:mx-0 font-normal">
               Adroit Technologies empowers global enterprises and ed-tech leaders with advanced, scalable digital ecosystems and intelligent software. Move faster, scale smarter.
             </p>
 
             {/* Key Value Pill Bullets */}
-            <div className="flex flex-wrap items-center justify-center lg:justify-start gap-4 text-xs font-semibold text-slate-700 pt-1">
+            <div className="flex flex-wrap items-center justify-center lg:justify-start gap-2.5 sm:gap-4 text-xs font-semibold text-slate-700 pt-1">
               <div className="flex items-center gap-1.5 bg-white/80 px-3 py-1.5 rounded-lg border border-slate-200 shadow-sm">
-                <CheckCircle2 className="w-4 h-4 text-blue-600" />
+                <CheckCircle2 className="w-4 h-4 text-blue-600 flex-shrink-0" />
                 <span>Autonomous AI Agents</span>
               </div>
               <div className="flex items-center gap-1.5 bg-white/80 px-3 py-1.5 rounded-lg border border-slate-200 shadow-sm">
-                <CheckCircle2 className="w-4 h-4 text-blue-600" />
+                <CheckCircle2 className="w-4 h-4 text-blue-600 flex-shrink-0" />
                 <span>High-Concurrency Sandboxes</span>
               </div>
               <div className="flex items-center gap-1.5 bg-white/80 px-3 py-1.5 rounded-lg border border-slate-200 shadow-sm">
-                <CheckCircle2 className="w-4 h-4 text-blue-600" />
+                <CheckCircle2 className="w-4 h-4 text-blue-600 flex-shrink-0" />
                 <span>Enterprise Security SLA</span>
               </div>
             </div>
@@ -83,7 +83,7 @@ export const Hero: React.FC<HeroProps> = ({ onOpenDemoModal }) => {
             <div className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 pt-4">
               <button
                 onClick={onOpenDemoModal}
-                className="w-full sm:w-auto bg-blue-600 hover:bg-blue-700 text-white font-bold text-base px-8 py-4 rounded-xl shadow-xl shadow-blue-600/30 hover:shadow-blue-600/50 hover:-translate-y-0.5 transition-all duration-200 flex items-center justify-center gap-3 group"
+                className="w-full sm:w-auto bg-blue-600 hover:bg-blue-700 text-white font-bold text-base px-8 py-4 rounded-xl shadow-xl shadow-blue-600/30 hover:shadow-blue-600/50 hover:-translate-y-0.5 transition-all duration-200 flex items-center justify-center gap-3 group cursor-pointer"
               >
                 <span>Request a Demo</span>
                 <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
@@ -91,25 +91,25 @@ export const Hero: React.FC<HeroProps> = ({ onOpenDemoModal }) => {
 
               <button
                 onClick={onOpenDemoModal}
-                className="w-full sm:w-auto bg-white hover:bg-slate-50 text-slate-800 font-bold text-base px-7 py-4 rounded-xl border border-slate-300 shadow-sm hover:border-slate-400 transition-all duration-200 flex items-center justify-center gap-2"
+                className="w-full sm:w-auto bg-white hover:bg-slate-50 text-slate-800 font-bold text-base px-7 py-4 rounded-xl border border-slate-300 shadow-sm hover:border-slate-400 transition-all duration-200 flex items-center justify-center gap-2 cursor-pointer"
               >
                 <span>Contact Sales</span>
               </button>
             </div>
 
             {/* Trust Micro Stat Bar */}
-            <div className="pt-6 border-t border-slate-200/60 grid grid-cols-3 gap-4 text-center lg:text-left">
+            <div className="pt-6 border-t border-slate-200/60 grid grid-cols-3 gap-2 sm:gap-4 text-center lg:text-left">
               <div>
-                <p className="text-2xl font-black text-slate-900">10M+</p>
-                <p className="text-xs text-slate-500 font-medium">Evaluations Executed</p>
+                <p className="text-xl sm:text-2xl font-black text-slate-900">10M+</p>
+                <p className="text-[10px] sm:text-xs text-slate-500 font-medium">Evaluations Executed</p>
               </div>
               <div>
-                <p className="text-2xl font-black text-blue-600">99.99%</p>
-                <p className="text-xs text-slate-500 font-medium">Platform Uptime SLA</p>
+                <p className="text-xl sm:text-2xl font-black text-blue-600">99.99%</p>
+                <p className="text-[10px] sm:text-xs text-slate-500 font-medium">Platform Uptime SLA</p>
               </div>
               <div>
-                <p className="text-2xl font-black text-slate-900">500+</p>
-                <p className="text-xs text-slate-500 font-medium">Global Enterprise Clients</p>
+                <p className="text-xl sm:text-2xl font-black text-slate-900">500+</p>
+                <p className="text-[10px] sm:text-xs text-slate-500 font-medium">Global Enterprise Clients</p>
               </div>
             </div>
           </motion.div>
@@ -119,35 +119,35 @@ export const Hero: React.FC<HeroProps> = ({ onOpenDemoModal }) => {
             initial={{ opacity: 0, scale: 0.94 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.7, delay: 0.2 }}
-            className="lg:col-span-6 relative"
+            className="lg:col-span-6 relative w-full max-w-full"
           >
             {/* Interactive 3D Perspective Card Box */}
-            <div className="relative rounded-2xl bg-white p-3 shadow-2xl border border-slate-200/90 blue-glow animate-float">
+            <div className="relative rounded-2xl bg-white p-2.5 sm:p-3 shadow-2xl border border-slate-200/90 blue-glow animate-float max-w-full w-full overflow-hidden sm:overflow-visible">
               
               {/* Window Bar Header */}
-              <div className="bg-slate-900 text-white rounded-t-xl px-4 py-3 flex items-center justify-between">
-                <div className="flex items-center gap-2">
-                  <div className="w-3 h-3 rounded-full bg-rose-500" />
-                  <div className="w-3 h-3 rounded-full bg-amber-500" />
-                  <div className="w-3 h-3 rounded-full bg-emerald-500" />
-                  <span className="text-xs font-mono text-slate-400 ml-2">adroit-ai-sandbox.v2</span>
+              <div className="bg-slate-900 text-white rounded-t-xl px-3 sm:px-4 py-2.5 sm:py-3 flex flex-wrap sm:flex-nowrap items-center justify-between gap-2 overflow-hidden">
+                <div className="flex items-center gap-1.5 sm:gap-2 min-w-0">
+                  <div className="w-2.5 h-2.5 sm:w-3 sm:h-3 rounded-full bg-rose-500 flex-shrink-0" />
+                  <div className="w-2.5 h-2.5 sm:w-3 sm:h-3 rounded-full bg-amber-500 flex-shrink-0" />
+                  <div className="w-2.5 h-2.5 sm:w-3 sm:h-3 rounded-full bg-emerald-500 flex-shrink-0" />
+                  <span className="text-[10px] sm:text-xs font-mono text-slate-400 ml-1 sm:ml-2 truncate max-w-[100px] xs:max-w-[150px] sm:max-w-none">adroit-ai-sandbox.v2</span>
                 </div>
-                <div className="flex items-center gap-1 bg-slate-800 rounded-lg p-1">
+                <div className="flex items-center gap-0.5 sm:gap-1 bg-slate-800 rounded-lg p-0.5 sm:p-1 flex-shrink-0">
                   <button 
                     onClick={() => setActiveTab('ai')}
-                    className={`px-2.5 py-1 rounded text-xs font-semibold transition-colors ${activeTab === 'ai' ? 'bg-blue-600 text-white' : 'text-slate-400 hover:text-white'}`}
+                    className={`px-2 sm:px-2.5 py-1 rounded text-[10px] sm:text-xs font-semibold transition-colors cursor-pointer ${activeTab === 'ai' ? 'bg-blue-600 text-white' : 'text-slate-400 hover:text-white'}`}
                   >
                     AI Agent
                   </button>
                   <button 
                     onClick={() => setActiveTab('sandbox')}
-                    className={`px-2.5 py-1 rounded text-xs font-semibold transition-colors ${activeTab === 'sandbox' ? 'bg-blue-600 text-white' : 'text-slate-400 hover:text-white'}`}
+                    className={`px-2 sm:px-2.5 py-1 rounded text-[10px] sm:text-xs font-semibold transition-colors cursor-pointer ${activeTab === 'sandbox' ? 'bg-blue-600 text-white' : 'text-slate-400 hover:text-white'}`}
                   >
                     Code IDE
                   </button>
                   <button 
                     onClick={() => setActiveTab('analytics')}
-                    className={`px-2.5 py-1 rounded text-xs font-semibold transition-colors ${activeTab === 'analytics' ? 'bg-blue-600 text-white' : 'text-slate-400 hover:text-white'}`}
+                    className={`px-2 sm:px-2.5 py-1 rounded text-[10px] sm:text-xs font-semibold transition-colors cursor-pointer ${activeTab === 'analytics' ? 'bg-blue-600 text-white' : 'text-slate-400 hover:text-white'}`}
                   >
                     Telemetry
                   </button>
@@ -155,32 +155,32 @@ export const Hero: React.FC<HeroProps> = ({ onOpenDemoModal }) => {
               </div>
 
               {/* Card Body Content according to Active Tab */}
-              <div className="bg-slate-950 p-5 rounded-b-xl font-mono text-sm text-slate-200 min-h-[340px] flex flex-col justify-between">
+              <div className="bg-slate-950 p-3.5 sm:p-5 rounded-b-xl font-mono text-xs sm:text-sm text-slate-200 min-h-[300px] sm:min-h-[340px] flex flex-col justify-between overflow-x-auto max-w-full">
                 {activeTab === 'ai' && (
-                  <div className="space-y-4">
-                    <div className="flex items-center justify-between text-xs text-slate-400 border-b border-slate-800 pb-2">
-                      <span className="flex items-center gap-2 text-blue-400 font-semibold">
-                        <Terminal className="w-4 h-4" /> Adroit Autonomous AI Core
+                  <div className="space-y-3 sm:space-y-4">
+                    <div className="flex items-center justify-between text-[11px] sm:text-xs text-slate-400 border-b border-slate-800 pb-2">
+                      <span className="flex items-center gap-1.5 sm:gap-2 text-blue-400 font-semibold truncate">
+                        <Terminal className="w-3.5 h-3.5 sm:w-4 sm:h-4 flex-shrink-0" /> Adroit Autonomous AI Core
                       </span>
-                      <span className="text-emerald-400 flex items-center gap-1">
+                      <span className="text-emerald-400 flex items-center gap-1 flex-shrink-0">
                         <span className="w-2 h-2 rounded-full bg-emerald-400 animate-ping inline-block" /> Live
                       </span>
                     </div>
 
-                    <div className="space-y-2 text-xs">
+                    <div className="space-y-1.5 sm:space-y-2 text-[10px] sm:text-xs">
                       <p className="text-slate-400">// Initializing Adroit Enterprise Engine...</p>
                       <p className="text-blue-400">&gt; adroit init --stack=react-typescript-ai</p>
-                      <p className="text-slate-300">✔ Connected to Adroit Distributed Sandbox (Latency: 14ms)</p>
+                      <p className="text-slate-300">✔ Connected to Sandbox (Latency: 14ms)</p>
                       <p className="text-slate-300">✔ AI Proctoring & Compliance: ACTIVE</p>
                       <p className="text-slate-300">✔ Auto Code Quality Auditor: RUNNING</p>
                     </div>
 
                     {/* Code Snippet Box */}
-                    <div className="bg-slate-900/90 border border-slate-800 p-3 rounded-lg space-y-1 text-xs">
-                      <span className="text-purple-400">async function</span> <span className="text-blue-300">evaluateCode</span>(<span className="text-amber-300">candidateSubmission</span>) {'{'}
-                      <div className="pl-4 text-slate-300">
+                    <div className="bg-slate-900/90 border border-slate-800 p-2.5 sm:p-3 rounded-lg space-y-1 text-[10px] sm:text-xs overflow-x-auto">
+                      <span className="text-purple-400">async function</span> <span className="text-blue-300">evaluateCode</span>(<span className="text-amber-300">submission</span>) {'{'}
+                      <div className="pl-3 sm:pl-4 text-slate-300">
                         <span className="text-purple-400">const</span> score = <span className="text-purple-400">await</span> AdroitAI.<span className="text-blue-300">analyzeCompetency</span>({'{'}
-                        <div className="pl-4 text-slate-400">
+                        <div className="pl-3 sm:pl-4 text-slate-400">
                           correctness: <span className="text-emerald-400">0.99</span>,<br/>
                           efficiency: <span className="text-emerald-400">"O(N log N)"</span>,<br/>
                           securityScore: <span className="text-emerald-400">100</span>
@@ -194,7 +194,7 @@ export const Hero: React.FC<HeroProps> = ({ onOpenDemoModal }) => {
                       <motion.div 
                         initial={{ opacity: 0, y: 5 }}
                         animate={{ opacity: 1, y: 0 }}
-                        className="bg-emerald-950/80 border border-emerald-500/40 text-emerald-300 p-2.5 rounded text-xs"
+                        className="bg-emerald-950/80 border border-emerald-500/40 text-emerald-300 p-2 sm:p-2.5 rounded text-[10px] sm:text-xs break-words"
                       >
                         {codeOutput}
                       </motion.div>
@@ -203,14 +203,14 @@ export const Hero: React.FC<HeroProps> = ({ onOpenDemoModal }) => {
                 )}
 
                 {activeTab === 'sandbox' && (
-                  <div className="space-y-4">
-                    <div className="flex items-center justify-between text-xs text-slate-400 border-b border-slate-800 pb-2">
-                      <span className="flex items-center gap-2 text-sky-400 font-semibold">
-                        <Code className="w-4 h-4" /> Multi-Language Sandbox Editor
+                  <div className="space-y-3 sm:space-y-4">
+                    <div className="flex items-center justify-between text-[11px] sm:text-xs text-slate-400 border-b border-slate-800 pb-2">
+                      <span className="flex items-center gap-1.5 sm:gap-2 text-sky-400 font-semibold truncate">
+                        <Code className="w-3.5 h-3.5 sm:w-4 sm:h-4 flex-shrink-0" /> Multi-Language Sandbox Editor
                       </span>
-                      <span className="bg-slate-800 px-2 py-0.5 rounded text-[10px] text-slate-300">Python 3.11</span>
+                      <span className="bg-slate-800 px-2 py-0.5 rounded text-[10px] text-slate-300 flex-shrink-0">Python 3.11</span>
                     </div>
-                    <pre className="text-xs text-slate-300 bg-slate-900 p-3 rounded-lg overflow-x-auto">
+                    <pre className="text-[10px] sm:text-xs text-slate-300 bg-slate-900 p-2.5 sm:p-3 rounded-lg overflow-x-auto max-w-full">
 {`def calculate_enterprise_roi(teams, velocity):
     # Adroit Automated Optimization
     efficiency_gain = teams * 1.40
@@ -220,51 +220,51 @@ export const Hero: React.FC<HeroProps> = ({ onOpenDemoModal }) => {
         "quality_boost": f"{bug_reduction * 100}%"
     }`}
                     </pre>
-                    <p className="text-xs text-slate-400">Press Run to execute test cases against isolated sandbox worker.</p>
+                    <p className="text-[10px] sm:text-xs text-slate-400">Press Run to execute test cases against isolated sandbox worker.</p>
                   </div>
                 )}
 
                 {activeTab === 'analytics' && (
-                  <div className="space-y-4">
-                    <div className="flex items-center justify-between text-xs text-slate-400 border-b border-slate-800 pb-2">
-                      <span className="flex items-center gap-2 text-indigo-400 font-semibold">
-                        <Activity className="w-4 h-4" /> Real-time System Telemetry
+                  <div className="space-y-3 sm:space-y-4">
+                    <div className="flex items-center justify-between text-[11px] sm:text-xs text-slate-400 border-b border-slate-800 pb-2">
+                      <span className="flex items-center gap-1.5 sm:gap-2 text-indigo-400 font-semibold truncate">
+                        <Activity className="w-3.5 h-3.5 sm:w-4 sm:h-4 flex-shrink-0" /> Real-time System Telemetry
                       </span>
-                      <span className="text-xs text-emerald-400 font-bold">Healthy</span>
+                      <span className="text-xs text-emerald-400 font-bold flex-shrink-0">Healthy</span>
                     </div>
 
-                    <div className="grid grid-cols-2 gap-3 text-xs">
-                      <div className="bg-slate-900 p-3 rounded-lg border border-slate-800">
-                        <span className="text-slate-400 block mb-1">Sandbox Concurrency</span>
-                        <span className="text-lg font-bold text-white">45,210 / sec</span>
+                    <div className="grid grid-cols-1 xs:grid-cols-2 gap-2 sm:gap-3 text-xs">
+                      <div className="bg-slate-900 p-2.5 sm:p-3 rounded-lg border border-slate-800">
+                        <span className="text-slate-400 block mb-1 text-[10px] sm:text-xs">Sandbox Concurrency</span>
+                        <span className="text-base sm:text-lg font-bold text-white">45,210 / sec</span>
                       </div>
-                      <div className="bg-slate-900 p-3 rounded-lg border border-slate-800">
-                        <span className="text-slate-400 block mb-1">Avg Execution Time</span>
-                        <span className="text-lg font-bold text-emerald-400">38 ms</span>
+                      <div className="bg-slate-900 p-2.5 sm:p-3 rounded-lg border border-slate-800">
+                        <span className="text-slate-400 block mb-1 text-[10px] sm:text-xs">Avg Execution Time</span>
+                        <span className="text-base sm:text-lg font-bold text-emerald-400">38 ms</span>
                       </div>
-                      <div className="bg-slate-900 p-3 rounded-lg border border-slate-800">
-                        <span className="text-slate-400 block mb-1">AI Proctoring Flags</span>
-                        <span className="text-lg font-bold text-blue-400">0.001% (Zero False Positive)</span>
+                      <div className="bg-slate-900 p-2.5 sm:p-3 rounded-lg border border-slate-800">
+                        <span className="text-slate-400 block mb-1 text-[10px] sm:text-xs">AI Proctoring Flags</span>
+                        <span className="text-base sm:text-lg font-bold text-blue-400">0.001%</span>
                       </div>
-                      <div className="bg-slate-900 p-3 rounded-lg border border-slate-800">
-                        <span className="text-slate-400 block mb-1">Security Score</span>
-                        <span className="text-lg font-bold text-sky-400">SOC2 Type II</span>
+                      <div className="bg-slate-900 p-2.5 sm:p-3 rounded-lg border border-slate-800">
+                        <span className="text-slate-400 block mb-1 text-[10px] sm:text-xs">Security Score</span>
+                        <span className="text-base sm:text-lg font-bold text-sky-400">SOC2 Type II</span>
                       </div>
                     </div>
                   </div>
                 )}
 
                 {/* Bottom Interactive Simulation Bar */}
-                <div className="pt-3 border-t border-slate-800 flex items-center justify-between">
-                  <div className="flex items-center gap-2">
-                    <div className="w-2 h-2 rounded-full bg-emerald-400" />
-                    <span className="text-[11px] text-slate-400">Engine Status: Ready</span>
+                <div className="pt-3 border-t border-slate-800 flex items-center justify-between gap-2">
+                  <div className="flex items-center gap-1.5 sm:gap-2">
+                    <div className="w-2 h-2 rounded-full bg-emerald-400 flex-shrink-0" />
+                    <span className="text-[10px] sm:text-[11px] text-slate-400">Engine: Ready</span>
                   </div>
 
                   <button
                     onClick={handleRunDemo}
                     disabled={isRunningCode}
-                    className="bg-blue-600 hover:bg-blue-500 text-white text-xs font-bold px-3.5 py-1.5 rounded-lg flex items-center gap-1.5 transition-colors disabled:opacity-50"
+                    className="bg-blue-600 hover:bg-blue-500 text-white text-xs font-bold px-3 sm:px-3.5 py-1.5 rounded-lg flex items-center gap-1.5 transition-colors disabled:opacity-50 cursor-pointer flex-shrink-0"
                   >
                     <Play className="w-3 h-3 fill-current" />
                     {isRunningCode ? 'Evaluating...' : 'Simulate Engine'}
@@ -272,9 +272,9 @@ export const Hero: React.FC<HeroProps> = ({ onOpenDemoModal }) => {
                 </div>
               </div>
 
-              {/* Floating Floating Badges around Card */}
-              <div className="absolute -bottom-5 -left-6 bg-white p-3 rounded-xl shadow-xl border border-slate-200 hidden sm:flex items-center gap-3">
-                <div className="w-9 h-9 rounded-lg bg-blue-100 text-blue-600 flex items-center justify-center font-bold">
+              {/* Floating Badges around Card (visible on xl viewports to guarantee zero overflow on mobile/tablet) */}
+              <div className="absolute -bottom-5 -left-6 bg-white p-3 rounded-xl shadow-xl border border-slate-200 hidden xl:flex items-center gap-3">
+                <div className="w-9 h-9 rounded-lg bg-blue-100 text-blue-600 flex items-center justify-center font-bold flex-shrink-0">
                   <Cpu className="w-5 h-5" />
                 </div>
                 <div>
@@ -283,8 +283,8 @@ export const Hero: React.FC<HeroProps> = ({ onOpenDemoModal }) => {
                 </div>
               </div>
 
-              <div className="absolute -top-5 -right-6 bg-slate-900 text-white p-3 rounded-xl shadow-xl border border-slate-800 hidden sm:flex items-center gap-3">
-                <div className="w-9 h-9 rounded-lg bg-emerald-500/20 text-emerald-400 flex items-center justify-center font-bold">
+              <div className="absolute -top-5 -right-6 bg-slate-900 text-white p-3 rounded-xl shadow-xl border border-slate-800 hidden xl:flex items-center gap-3">
+                <div className="w-9 h-9 rounded-lg bg-emerald-500/20 text-emerald-400 flex items-center justify-center font-bold flex-shrink-0">
                   <ShieldCheck className="w-5 h-5" />
                 </div>
                 <div>

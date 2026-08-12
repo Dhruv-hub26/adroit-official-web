@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { X, Sparkles, CheckCircle2, ArrowRight, Building2, Mail, User, ShieldCheck } from 'lucide-react';
+import { X, Sparkles, CheckCircle2, ArrowRight, Building2, Mail, User, ShieldCheck, Loader2 } from 'lucide-react';
 import type { DemoFormData } from '../../types';
 
 interface DemoModalProps {
@@ -20,17 +20,26 @@ export const DemoModal: React.FC<DemoModalProps> = ({ isOpen, onClose }) => {
 
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const timerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
+
+    // Simulated network request state transition
     setTimeout(() => {
       setIsSubmitting(false);
       setIsSubmitted(true);
-    }, 1200);
+
+      // Auto-close / smoothly dismiss the modal after 2 seconds
+      timerRef.current = setTimeout(() => {
+        handleClose();
+      }, 2000);
+    }, 1000);
   };
 
   const handleReset = () => {
+    setIsSubmitting(false);
     setIsSubmitted(false);
     setFormData({
       fullName: '',
@@ -40,8 +49,26 @@ export const DemoModal: React.FC<DemoModalProps> = ({ isOpen, onClose }) => {
       productInterest: 'Custom Software & AI Integration',
       message: ''
     });
-    onClose();
   };
+
+  const handleClose = () => {
+    if (timerRef.current) {
+      clearTimeout(timerRef.current);
+      timerRef.current = null;
+    }
+    onClose();
+    setTimeout(() => {
+      handleReset();
+    }, 300);
+  };
+
+  useEffect(() => {
+    return () => {
+      if (timerRef.current) {
+        clearTimeout(timerRef.current);
+      }
+    };
+  }, []);
 
   return (
     <AnimatePresence>
@@ -52,7 +79,7 @@ export const DemoModal: React.FC<DemoModalProps> = ({ isOpen, onClose }) => {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            onClick={onClose}
+            onClick={handleClose}
             className="fixed inset-0 bg-slate-950/70 backdrop-blur-md"
           />
 
@@ -79,8 +106,8 @@ export const DemoModal: React.FC<DemoModalProps> = ({ isOpen, onClose }) => {
               </div>
 
               <button
-                onClick={onClose}
-                className="w-9 h-9 rounded-full bg-white/10 hover:bg-white/20 text-white flex items-center justify-center transition-colors flex-shrink-0"
+                onClick={handleClose}
+                className="w-9 h-9 rounded-full bg-white/10 hover:bg-white/20 text-white flex items-center justify-center transition-colors flex-shrink-0 cursor-pointer"
               >
                 <X className="w-5 h-5" />
               </button>
@@ -89,29 +116,46 @@ export const DemoModal: React.FC<DemoModalProps> = ({ isOpen, onClose }) => {
             {/* Modal Body */}
             <div className="p-6 sm:p-8">
               {isSubmitted ? (
-                <div className="text-center py-8 space-y-6">
+                <motion.div 
+                  initial={{ opacity: 0, scale: 0.95 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  className="text-center py-6 space-y-6"
+                >
+                  {/* Success Toast / Feedback State Banner */}
+                  <div className="bg-emerald-50 border border-emerald-200 text-emerald-900 p-4 rounded-2xl flex items-center justify-center gap-3 shadow-sm max-w-md mx-auto">
+                    <CheckCircle2 className="w-6 h-6 text-emerald-600 flex-shrink-0" />
+                    <div className="text-left">
+                      <p className="font-extrabold text-sm text-emerald-950">
+                        Demo Request Submitted!
+                      </p>
+                      <p className="text-xs font-medium text-emerald-800">
+                        Our team will contact you within 24 hours.
+                      </p>
+                    </div>
+                  </div>
+
                   <div className="w-16 h-16 bg-emerald-100 text-emerald-600 rounded-full flex items-center justify-center mx-auto text-2xl shadow-lg">
                     <CheckCircle2 className="w-10 h-10" />
                   </div>
+
                   <div className="space-y-2">
                     <h4 className="text-2xl font-extrabold text-slate-900">
-                      Demo Request Received!
+                      Thank You, {formData.fullName || 'Valued Partner'}!
                     </h4>
-                    <p className="text-slate-600 text-sm max-w-md mx-auto">
-                      Thank you <strong className="text-slate-800">{formData.fullName}</strong>. An Adroit Solution Architect will reach out to <strong className="text-blue-600">{formData.email}</strong> within 2 business hours with calendar invites and sandbox access.
+                    <p className="text-slate-600 text-sm max-w-md mx-auto leading-relaxed">
+                      An Adroit Solution Architect will reach out to <strong className="text-blue-600 font-bold">{formData.email}</strong> within 24 hours with calendar invites and sandbox access.
                     </p>
                   </div>
+
                   <div className="bg-slate-50 p-4 rounded-xl text-xs text-slate-500 max-w-md mx-auto border border-slate-200">
                     <span className="font-bold text-slate-700 block mb-1">Requested Solution:</span>
                     <span>{formData.productInterest} ({formData.companySize} employees)</span>
                   </div>
-                  <button
-                    onClick={handleReset}
-                    className="bg-blue-600 text-white font-bold text-sm px-8 py-3 rounded-xl shadow-lg hover:bg-blue-700 transition-colors"
-                  >
-                    Done & Close
-                  </button>
-                </div>
+
+                  <p className="text-xs text-slate-400 font-medium italic">
+                    Closing modal automatically...
+                  </p>
+                </motion.div>
               ) : (
                 <form onSubmit={handleSubmit} className="space-y-4">
                   <div className="grid sm:grid-cols-2 gap-4">
@@ -224,10 +268,13 @@ export const DemoModal: React.FC<DemoModalProps> = ({ isOpen, onClose }) => {
                     <button
                       type="submit"
                       disabled={isSubmitting}
-                      className="bg-blue-600 hover:bg-blue-700 text-white font-bold text-sm px-7 py-3 rounded-xl shadow-lg shadow-blue-600/25 flex items-center gap-2 transition-all disabled:opacity-50"
+                      className="bg-blue-600 hover:bg-blue-700 text-white font-bold text-sm px-7 py-3 rounded-xl shadow-lg shadow-blue-600/25 flex items-center gap-2 transition-all disabled:opacity-75 disabled:cursor-not-allowed cursor-pointer"
                     >
                       {isSubmitting ? (
-                        <span>Booking...</span>
+                        <>
+                          <Loader2 className="w-4 h-4 animate-spin text-white" />
+                          <span>Submitting Request...</span>
+                        </>
                       ) : (
                         <>
                           <span>Submit Request</span>
